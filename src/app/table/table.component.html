@@ -1,0 +1,72 @@
+<!--html-->
+<h1> table component works! </h1>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+<ng-container matColumnDef="position">
+  <th mat-header-cell *matHeaderCellDef> No. </th>
+  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+</ng-container>
+
+<!-- Name Column -->
+<ng-container matColumnDef="name">
+  <th mat-header-cell *matHeaderCellDef> Name </th>
+  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+</ng-container>
+
+<!-- Weight Column -->
+<ng-container matColumnDef="weight">
+  <th mat-header-cell *matHeaderCellDef> Weight </th>
+  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+</ng-container>
+
+<!-- Symbol Column -->
+<ng-container matColumnDef="symbol">
+  <th mat-header-cell *matHeaderCellDef> Symbol </th>
+  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<!--<div class="ont-details-card" id="ont-table-card" *ngIf="ontologyData">
+  <div class="ont-table-heading">
+    <div class="ont-table-title">
+      {{ontologyData.shortName}} Table
+    </div>
+    <div class="table-manipulations">
+      <div class=toggle-switch-wrapper>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="showMinTable">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <label class="toggle-switch-label">Default Columns</label>
+      <!-- need to add #dt to the <table> to export to cvs -->
+    <!--  <div class = "table-download-icon" (click)="exporter.exportTable('csv')">
+        <i class="fa fa-cloud-download fa-lg" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ont-table-desc">
+    {{ontologyData.description}}
+  </div>
+    <mat-table *ngIf="dataLoaded && !showMinTable" [dataSource]="allTableData" matSort>
+      <ng-container *ngFor="let columnHeader of allDisplayedColumns;" matColumnDef={{columnHeader}}>
+         <mat-header-cell  mat-sort-header *matHeaderCellDef>{{columnHeader}}</mat-header-cell>
+         <mat-cell *matCellDef="let row">{{row[columnHeader]}}</mat-cell>
+       </ng-container>
+     <mat-header-row *matHeaderRowDef="allDisplayedColumns"></mat-header-row>
+     <mat-row *matRowDef="let row; columns: allDisplayedColumns;"></mat-row>
+   </mat-table>
+  <mat-table *ngIf="dataLoaded && showMinTable" [dataSource]="minTableData" matSort>
+    <ng-container *ngFor="let columnHeader of minDisplayedColumns;" matColumnDef={{columnHeader}}>
+         <mat-header-cell  mat-sort-header *matHeaderCellDef>{{columnHeader}}</mat-header-cell>
+         <mat-cell *matCellDef="let row">{{row[columnHeader]}}</mat-cell>
+     </ng-container>
+     <mat-header-row *matHeaderRowDef="minDisplayedColumns"></mat-header-row>
+     <mat-row *matRowDef="let row; columns: minDisplayedColumns;"></mat-row>
+  </mat-table>
+  </div>
+  -->
